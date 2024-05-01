@@ -1,0 +1,19 @@
+rule: Example_GG02
+
+camel_case_used:
+  pass_str: |
+    select
+      MyData,
+      sum(MoreData)
+    from tbl
+    group by MyData
+    order by MyData
+
+no_camel_case_used:
+  fail_str: |
+    select
+      my_data,
+      sum(more_data)
+    from tbl
+    order by my_data
+

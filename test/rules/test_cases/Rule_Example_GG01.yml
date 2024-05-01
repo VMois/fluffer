@@ -1,0 +1,18 @@
+rule: Example_GG01
+
+no_star_used:
+  pass_str: |
+    select
+      a,
+      sum(b)
+    from tbl
+    group by a
+    order by a
+
+star_used:
+  fail_str: |
+    select
+      *
+    from tbl
+    order by bar
+
