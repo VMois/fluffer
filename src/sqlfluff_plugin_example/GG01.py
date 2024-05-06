@@ -1,8 +1,3 @@
-"""An example of a custom rule implemented through the plugin system.
-
-This uses the rules API supported from 0.4.0 onwards.
-"""
-
 from sqlfluff.core.rules import (
     BaseRule,
     LintResult,
@@ -12,24 +7,7 @@ from sqlfluff.core.rules.crawlers import SegmentSeekerCrawler
 
 
 class Rule_Example_GG01(BaseRule):
-    """'*' is forbidden in SELECT statements
-
-    **Anti-pattern**
-
-    If new column(s) are added to the table, there is no way to detect it
-
-    .. code-block:: sql
-
-        SELECT * FROM foo
-
-    **Best practice**
-
-    All columns are known and it is clear what is used
-
-    .. code-block:: sql
-
-        SELECT a, b, c FROM foo
-    """
+    """'*' is forbidden in SELECT statements. NOTE: SQLFluff default rules already provide something similar"""
 
     groups = ("all",)
     config_keywords = ["forbidden_columns"]
